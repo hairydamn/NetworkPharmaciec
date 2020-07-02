@@ -38,14 +38,15 @@
             this.textBoxHours = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.listViewPharm = new System.Windows.Forms.ListView();
-            this.buttonAdd = new System.Windows.Forms.Button();
-            this.buttonRes = new System.Windows.Forms.Button();
-            this.buttonDel = new System.Windows.Forms.Button();
             this.IDPharm = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TitlePharm = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.AddressPharm = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Address = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Phone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Hours = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonDel = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.buttonEdit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,6 +98,7 @@
             this.textBoxTitlePharm.Name = "textBoxTitlePharm";
             this.textBoxTitlePharm.Size = new System.Drawing.Size(247, 48);
             this.textBoxTitlePharm.TabIndex = 4;
+            this.textBoxTitlePharm.TextChanged += new System.EventHandler(this.TextBoxTitlePharm_TextChanged);
             // 
             // textBoxAddress
             // 
@@ -106,6 +108,7 @@
             this.textBoxAddress.Name = "textBoxAddress";
             this.textBoxAddress.Size = new System.Drawing.Size(247, 48);
             this.textBoxAddress.TabIndex = 5;
+            this.textBoxAddress.TextChanged += new System.EventHandler(this.TextBoxAddress_TextChanged);
             // 
             // textBoxPhone
             // 
@@ -115,6 +118,7 @@
             this.textBoxPhone.Name = "textBoxPhone";
             this.textBoxPhone.Size = new System.Drawing.Size(247, 48);
             this.textBoxPhone.TabIndex = 6;
+            this.textBoxPhone.TextChanged += new System.EventHandler(this.TextBoxPhone_TextChanged);
             // 
             // textBoxHours
             // 
@@ -124,6 +128,7 @@
             this.textBoxHours.Name = "textBoxHours";
             this.textBoxHours.Size = new System.Drawing.Size(247, 48);
             this.textBoxHours.TabIndex = 7;
+            this.textBoxHours.TextChanged += new System.EventHandler(this.TextBoxHours_TextChanged);
             // 
             // pictureBox1
             // 
@@ -141,7 +146,7 @@
             this.listViewPharm.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.IDPharm,
             this.TitlePharm,
-            this.AddressPharm,
+            this.Address,
             this.Phone,
             this.Hours});
             this.listViewPharm.FullRowSelect = true;
@@ -156,35 +161,6 @@
             this.listViewPharm.View = System.Windows.Forms.View.Details;
             this.listViewPharm.SelectedIndexChanged += new System.EventHandler(this.ListViewPharm_SelectedIndexChanged);
             // 
-            // buttonAdd
-            // 
-            this.buttonAdd.Location = new System.Drawing.Point(501, 531);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(165, 63);
-            this.buttonAdd.TabIndex = 10;
-            this.buttonAdd.Text = "Создать";
-            this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.ButtonAdd_Click);
-            // 
-            // buttonRes
-            // 
-            this.buttonRes.Location = new System.Drawing.Point(687, 531);
-            this.buttonRes.Name = "buttonRes";
-            this.buttonRes.Size = new System.Drawing.Size(165, 63);
-            this.buttonRes.TabIndex = 11;
-            this.buttonRes.Text = "Обновить";
-            this.buttonRes.UseVisualStyleBackColor = true;
-            // 
-            // buttonDel
-            // 
-            this.buttonDel.Location = new System.Drawing.Point(875, 531);
-            this.buttonDel.Name = "buttonDel";
-            this.buttonDel.Size = new System.Drawing.Size(165, 63);
-            this.buttonDel.TabIndex = 12;
-            this.buttonDel.Text = "Удалить";
-            this.buttonDel.UseVisualStyleBackColor = true;
-            this.buttonDel.Click += new System.EventHandler(this.ButtonDel_Click);
-            // 
             // IDPharm
             // 
             this.IDPharm.Text = "ID";
@@ -194,10 +170,10 @@
             this.TitlePharm.Text = "Название аптеки";
             this.TitlePharm.Width = 173;
             // 
-            // AddressPharm
+            // Address
             // 
-            this.AddressPharm.Text = "Адрес аптеки";
-            this.AddressPharm.Width = 148;
+            this.Address.Text = "Адрес аптеки";
+            this.Address.Width = 148;
             // 
             // Phone
             // 
@@ -209,13 +185,54 @@
             this.Hours.Text = "Часы работы";
             this.Hours.Width = 173;
             // 
+            // buttonAdd
+            // 
+            this.buttonAdd.Location = new System.Drawing.Point(501, 531);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(165, 63);
+            this.buttonAdd.TabIndex = 10;
+            this.buttonAdd.Text = "Создать";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.ButtonAdd_Click);
+            // 
+            // buttonDel
+            // 
+            this.buttonDel.Location = new System.Drawing.Point(875, 531);
+            this.buttonDel.Name = "buttonDel";
+            this.buttonDel.Size = new System.Drawing.Size(165, 63);
+            this.buttonDel.TabIndex = 12;
+            this.buttonDel.Text = "Удалить";
+            this.buttonDel.UseVisualStyleBackColor = true;
+            this.buttonDel.Click += new System.EventHandler(this.ButtonDel_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(294, 18);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(159, 52);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Лекарства";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            // 
+            // buttonEdit
+            // 
+            this.buttonEdit.Location = new System.Drawing.Point(682, 531);
+            this.buttonEdit.Name = "buttonEdit";
+            this.buttonEdit.Size = new System.Drawing.Size(165, 63);
+            this.buttonEdit.TabIndex = 14;
+            this.buttonEdit.Text = "Редактировать";
+            this.buttonEdit.UseVisualStyleBackColor = true;
+            this.buttonEdit.Click += new System.EventHandler(this.ButtonEdit_Click);
+            // 
             // FormPharm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 657);
+            this.Controls.Add(this.buttonEdit);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonDel);
-            this.Controls.Add(this.buttonRes);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.listViewPharm);
             this.Controls.Add(this.pictureBox1);
@@ -251,13 +268,14 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ListView listViewPharm;
         private System.Windows.Forms.Button buttonAdd;
-        private System.Windows.Forms.Button buttonRes;
         private System.Windows.Forms.Button buttonDel;
         private System.Windows.Forms.ColumnHeader IDPharm;
         private System.Windows.Forms.ColumnHeader TitlePharm;
-        private System.Windows.Forms.ColumnHeader AddressPharm;
+        private System.Windows.Forms.ColumnHeader Address;
         private System.Windows.Forms.ColumnHeader Phone;
         private System.Windows.Forms.ColumnHeader Hours;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonEdit;
     }
 }
 

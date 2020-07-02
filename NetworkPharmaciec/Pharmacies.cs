@@ -19,5 +19,9 @@ namespace NetworkPharmaciec
         public string Address { get; set; }
         public string Phone { get; set; }
         public string Hours { get; set; }
+    
+        public virtual Avail Avail { get; set; }
+        public virtual Pharmacies Pharmacies1 { get; set; }
+        public virtual Pharmacies Pharmacies2 { get; set; }
     }
 }

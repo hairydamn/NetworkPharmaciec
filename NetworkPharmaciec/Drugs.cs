@@ -14,11 +14,22 @@ namespace NetworkPharmaciec
     
     public partial class Drugs
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Drugs()
+        {
+            this.Avail = new HashSet<Avail>();
+        }
+    
         public int ID { get; set; }
         public string TitleDrug { get; set; }
         public string FormRelease { get; set; }
         public string Dosage { get; set; }
         public string Maker { get; set; }
         public string ShelfLife { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Avail> Avail { get; set; }
+        public virtual Drugs Drugs1 { get; set; }
+        public virtual Drugs Drugs2 { get; set; }
     }
 }

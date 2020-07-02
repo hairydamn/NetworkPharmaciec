@@ -13,10 +13,10 @@ namespace NetworkPharmaciec
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class NetPharmaciesEntities : DbContext
+    public partial class NetPharmaciesEntities5 : DbContext
     {
-        public NetPharmaciesEntities()
-            : base("name=NetPharmaciesEntities")
+        public NetPharmaciesEntities5()
+            : base("name=NetPharmaciesEntities5")
         {
         }
     

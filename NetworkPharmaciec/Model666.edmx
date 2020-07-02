@@ -5,72 +5,105 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="Хранилище NetPharmaciesModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "NetPharmacies.dbo.Avail" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <EntityType Name="Avail">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="IDDrug" Type="nchar" MaxLength="10" />
-          <Property Name="Quantity" Type="nchar" MaxLength="10" />
-          <Property Name="Price" Type="nchar" MaxLength="10" />
-          <Property Name="IDPharm" Type="nchar" MaxLength="10" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDDrug" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="nvarchar(max)" />
+          <Property Name="Price" Type="nvarchar(max)" />
+          <Property Name="IDPharm" Type="nvarchar(max)" />
         </EntityType>
-        <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "NetPharmacies.dbo.Drugs" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <EntityType Name="Drugs">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TitleDrug" Type="nvarchar(max)" />
           <Property Name="FormRelease" Type="nvarchar(max)" />
           <Property Name="Dosage" Type="nvarchar(max)" />
           <Property Name="Maker" Type="nvarchar(max)" />
           <Property Name="ShelfLife" Type="nvarchar(max)" />
         </EntityType>
-        <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "NetPharmacies.dbo.Pharmacies" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <EntityType Name="Pharmacies">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TitlePharm" Type="nvarchar(max)" />
           <Property Name="Address" Type="nvarchar(max)" />
           <Property Name="Phone" Type="nvarchar(max)" />
           <Property Name="Hours" Type="nvarchar(max)" />
         </EntityType>
+        <Association Name="FK_Avail_Drugs">
+          <End Role="Drugs" Type="Self.Drugs" Multiplicity="1" />
+          <End Role="Avail" Type="Self.Avail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Drugs">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Avail">
+              <PropertyRef Name="IDDrug" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Avail_Pharmacies">
+          <End Role="Pharmacies" Type="Self.Pharmacies" Multiplicity="1" />
+          <End Role="Avail" Type="Self.Avail" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Pharmacies">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Avail">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Drugs_Drugs">
+          <End Role="Drugs" Type="Self.Drugs" Multiplicity="1" />
+          <End Role="Drugs1" Type="Self.Drugs" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Drugs">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Drugs1">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pharmacies_Pharmacies">
+          <End Role="Pharmacies" Type="Self.Pharmacies" Multiplicity="1" />
+          <End Role="Pharmacies1" Type="Self.Pharmacies" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Pharmacies">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Pharmacies1">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="Хранилище NetPharmaciesModelContainer">
-          <EntitySet Name="Avail" EntityType="Self.Avail" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Avail].[ID] AS [ID], 
-    [Avail].[IDDrug] AS [IDDrug], 
-    [Avail].[Quantity] AS [Quantity], 
-    [Avail].[Price] AS [Price], 
-    [Avail].[IDPharm] AS [IDPharm]
-    FROM [dbo].[Avail] AS [Avail]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Drugs" EntityType="Self.Drugs" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Drugs].[ID] AS [ID], 
-    [Drugs].[TitleDrug] AS [TitleDrug], 
-    [Drugs].[FormRelease] AS [FormRelease], 
-    [Drugs].[Dosage] AS [Dosage], 
-    [Drugs].[Maker] AS [Maker], 
-    [Drugs].[ShelfLife] AS [ShelfLife]
-    FROM [dbo].[Drugs] AS [Drugs]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Pharmacies" EntityType="Self.Pharmacies" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Pharmacies].[ID] AS [ID], 
-    [Pharmacies].[TitlePharm] AS [TitlePharm], 
-    [Pharmacies].[Address] AS [Address], 
-    [Pharmacies].[Phone] AS [Phone], 
-    [Pharmacies].[Hours] AS [Hours]
-    FROM [dbo].[Pharmacies] AS [Pharmacies]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="Avail" EntityType="Self.Avail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Drugs" EntityType="Self.Drugs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pharmacies" EntityType="Self.Pharmacies" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Avail_Drugs" Association="Self.FK_Avail_Drugs">
+            <End Role="Drugs" EntitySet="Drugs" />
+            <End Role="Avail" EntitySet="Avail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Avail_Pharmacies" Association="Self.FK_Avail_Pharmacies">
+            <End Role="Pharmacies" EntitySet="Pharmacies" />
+            <End Role="Avail" EntitySet="Avail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Drugs_Drugs" Association="Self.FK_Drugs_Drugs">
+            <End Role="Drugs" EntitySet="Drugs" />
+            <End Role="Drugs1" EntitySet="Drugs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pharmacies_Pharmacies" Association="Self.FK_Pharmacies_Pharmacies">
+            <End Role="Pharmacies" EntitySet="Pharmacies" />
+            <End Role="Pharmacies1" EntitySet="Pharmacies" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -81,44 +114,116 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="IDDrug" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Quantity" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Price" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="IDPharm" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDDrug" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IDPharm" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Drugs" Relationship="Self.FK_Avail_Drugs" FromRole="Avail" ToRole="Drugs" />
+          <NavigationProperty Name="Pharmacies" Relationship="Self.FK_Avail_Pharmacies" FromRole="Avail" ToRole="Pharmacies" />
         </EntityType>
         <EntityType Name="Drugs">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TitleDrug" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="FormRelease" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Dosage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Maker" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ShelfLife" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Avail" Relationship="Self.FK_Avail_Drugs" FromRole="Drugs" ToRole="Avail" />
+          <NavigationProperty Name="Drugs1" Relationship="Self.FK_Drugs_Drugs" FromRole="Drugs" ToRole="Drugs1" />
+          <NavigationProperty Name="Drugs2" Relationship="Self.FK_Drugs_Drugs" FromRole="Drugs1" ToRole="Drugs" />
         </EntityType>
         <EntityType Name="Pharmacies">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TitlePharm" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Hours" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Avail" Relationship="Self.FK_Avail_Pharmacies" FromRole="Pharmacies" ToRole="Avail" />
+          <NavigationProperty Name="Pharmacies1" Relationship="Self.FK_Pharmacies_Pharmacies" FromRole="Pharmacies" ToRole="Pharmacies1" />
+          <NavigationProperty Name="Pharmacies2" Relationship="Self.FK_Pharmacies_Pharmacies" FromRole="Pharmacies1" ToRole="Pharmacies" />
         </EntityType>
-        <EntityContainer Name="NetPharmaciesEntities" annotation:LazyLoadingEnabled="true">
+        <Association Name="FK_Avail_Drugs">
+          <End Role="Drugs" Type="Self.Drugs" Multiplicity="1" />
+          <End Role="Avail" Type="Self.Avail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Drugs">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Avail">
+              <PropertyRef Name="IDDrug" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Avail_Pharmacies">
+          <End Role="Pharmacies" Type="Self.Pharmacies" Multiplicity="1" />
+          <End Role="Avail" Type="Self.Avail" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Pharmacies">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Avail">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Drugs_Drugs">
+          <End Role="Drugs" Type="Self.Drugs" Multiplicity="1" />
+          <End Role="Drugs1" Type="Self.Drugs" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Drugs">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Drugs1">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pharmacies_Pharmacies">
+          <End Role="Pharmacies" Type="Self.Pharmacies" Multiplicity="1" />
+          <End Role="Pharmacies1" Type="Self.Pharmacies" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Pharmacies">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Pharmacies1">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="NetPharmaciesEntities5" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Avail" EntityType="Self.Avail" />
           <EntitySet Name="Drugs" EntityType="Self.Drugs" />
           <EntitySet Name="Pharmacies" EntityType="Self.Pharmacies" />
+          <AssociationSet Name="FK_Avail_Drugs" Association="Self.FK_Avail_Drugs">
+            <End Role="Drugs" EntitySet="Drugs" />
+            <End Role="Avail" EntitySet="Avail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Avail_Pharmacies" Association="Self.FK_Avail_Pharmacies">
+            <End Role="Pharmacies" EntitySet="Pharmacies" />
+            <End Role="Avail" EntitySet="Avail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Drugs_Drugs" Association="Self.FK_Drugs_Drugs">
+            <End Role="Drugs" EntitySet="Drugs" />
+            <End Role="Drugs1" EntitySet="Drugs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pharmacies_Pharmacies" Association="Self.FK_Pharmacies_Pharmacies">
+            <End Role="Pharmacies" EntitySet="Pharmacies" />
+            <End Role="Pharmacies1" EntitySet="Pharmacies" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище NetPharmaciesModelContainer" CdmEntityContainer="NetPharmaciesEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище NetPharmaciesModelContainer" CdmEntityContainer="NetPharmaciesEntities5">
           <EntitySetMapping Name="Avail">
             <EntityTypeMapping TypeName="NetPharmaciesModel.Avail">
               <MappingFragment StoreEntitySet="Avail">

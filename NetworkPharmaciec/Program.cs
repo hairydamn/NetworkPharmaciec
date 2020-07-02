@@ -8,7 +8,7 @@ namespace NetworkPharmaciec
 {
     static class Program
     {
-        public static NetPharmaciesEntities PhBD = new NetPharmaciesEntities();
+        public static NetPharmaciesEntities4 frDb = new NetPharmaciesEntities4();
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>

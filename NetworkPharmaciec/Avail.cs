@@ -14,10 +14,13 @@ namespace NetworkPharmaciec
     
     public partial class Avail
     {
-        public string ID { get; set; }
-        public string IDDrug { get; set; }
+        public int ID { get; set; }
+        public int IDDrug { get; set; }
         public string Quantity { get; set; }
         public string Price { get; set; }
         public string IDPharm { get; set; }
+    
+        public virtual Drugs Drugs { get; set; }
+        public virtual Pharmacies Pharmacies { get; set; }
     }
 }

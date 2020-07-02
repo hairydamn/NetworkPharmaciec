@@ -20,7 +20,7 @@ namespace NetworkPharmaciec
         void ShowPharm()
         {
             listViewPharm.Items.Clear();
-            foreach (Pharmacies pharmSet in Program.PhBD.Pharmacies)
+            foreach (Pharmacies pharmSet in Program.frDb.Pharmacies)
             {
                 ListViewItem item = new ListViewItem(new string[]
                 {
@@ -44,14 +44,28 @@ namespace NetworkPharmaciec
             pharmSet.Address = textBoxAddress.Text;
             pharmSet.Phone = textBoxPhone.Text;
             pharmSet.Hours = textBoxHours.Text;
-            Program.PhBD.Pharmacies.Add(pharmSet);
-            Program.PhBD.SaveChanges();
+            Program.frDb.Pharmacies.Add(pharmSet);
+            Program.frDb.SaveChanges();
             ShowPharm();
         }
 
         private void ListViewPharm_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (listViewPharm.SelectedItems.Count == 1)
+            {
+                Pharmacies pharmSet = listViewPharm.SelectedItems[0].Tag as Pharmacies;
+                pharmSet.TitlePharm = textBoxTitlePharm.Text;
+                pharmSet.Address = textBoxAddress.Text;
+                pharmSet.Phone = textBoxPhone.Text;
+                pharmSet.Hours = textBoxHours.Text;
+            }
+            else
+            {
+                textBoxTitlePharm.Text = "";
+                textBoxAddress.Text = "";
+                textBoxPhone.Text = "";
+                textBoxHours.Text = "";
+            }
         }
 
         private void ButtonDel_Click(object sender, EventArgs e)
@@ -61,8 +75,8 @@ namespace NetworkPharmaciec
                 if (listViewPharm.SelectedItems.Count == 1)
                 {
                     Pharmacies readerSet = listViewPharm.SelectedItems[0].Tag as Pharmacies;
-                    Program.PhBD.Pharmacies.Remove(readerSet);
-                    Program.PhBD.SaveChanges();
+                    Program.frDb.Pharmacies.Remove(readerSet);
+                    Program.frDb.SaveChanges();
                     ShowPharm();
                 }
                 textBoxTitlePharm.Text = "";
@@ -73,6 +87,60 @@ namespace NetworkPharmaciec
             catch
             {
                 MessageBox.Show("Невозможно удалить, эта запись используется!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void TextBoxTitlePharm_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TextBoxAddress_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TextBoxPhone_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TextBoxHours_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            Form formDrugs = new FormDrugs();
+            formDrugs.Show();
+        }
+
+        private void ButtonRes_Click(object sender, EventArgs e)
+        {
+            if (listViewPharm.SelectedItems.Count == 1)
+            {
+                Pharmacies readerSet = new Pharmacies();
+                readerSet.TitlePharm = textBoxTitlePharm.Text;
+                readerSet.Address = textBoxAddress.Text;
+                readerSet.Phone = textBoxPhone.Text;
+                readerSet.Hours = textBoxHours.Text;
+                Program.frDb.SaveChanges();
+                ShowPharm();
+            }
+        }
+
+        private void ButtonEdit_Click(object sender, EventArgs e)
+        {
+            if (listViewPharm.SelectedItems.Count == 1)
+            {
+                Pharmacies readerSet = new Pharmacies();
+                readerSet.TitlePharm = textBoxTitlePharm.Text;
+                readerSet.Address = textBoxAddress.Text;
+                readerSet.Phone = textBoxPhone.Text;
+                readerSet.Hours = textBoxHours.Text;
+                Program.frDb.SaveChanges();
+                ShowPharm();
             }
         }
     }

@@ -4,10 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2dfdbcd174004cf2ae8d98b733424c2d" Name="Diagram1">
-        <EntityTypeShape EntityType="NetPharmaciesModel.Avail" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="NetPharmaciesModel.Drugs" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="NetPharmaciesModel.Pharmacies" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+      <Diagram DiagramId="68889631f95d47ed83d8b382faefbc49" Name="Diagram1">
+        <EntityTypeShape EntityType="NetPharmaciesModel.Avail" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="NetPharmaciesModel.Drugs" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="NetPharmaciesModel.Pharmacies" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="NetPharmaciesModel.FK_Avail_Drugs" ManuallyRouted="false" />
+        <AssociationConnector Association="NetPharmaciesModel.FK_Avail_Pharmacies" ManuallyRouted="false" />
+        <AssociationConnector Association="NetPharmaciesModel.FK_Drugs_Drugs" ManuallyRouted="false" />
+        <AssociationConnector Association="NetPharmaciesModel.FK_Pharmacies_Pharmacies" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
