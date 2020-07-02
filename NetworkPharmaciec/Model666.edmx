@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище NetPharmaciesModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "NetPharmacies.dbo.Avail" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Avail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="IDDrug" Type="nchar" MaxLength="10" />
+          <Property Name="Quantity" Type="nchar" MaxLength="10" />
+          <Property Name="Price" Type="nchar" MaxLength="10" />
+          <Property Name="IDPharm" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "NetPharmacies.dbo.Drugs" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Drugs">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="TitleDrug" Type="nvarchar(max)" />
+          <Property Name="FormRelease" Type="nvarchar(max)" />
+          <Property Name="Dosage" Type="nvarchar(max)" />
+          <Property Name="Maker" Type="nvarchar(max)" />
+          <Property Name="ShelfLife" Type="nvarchar(max)" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "NetPharmacies.dbo.Pharmacies" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Pharmacies">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="TitlePharm" Type="nvarchar(max)" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Phone" Type="nvarchar(max)" />
+          <Property Name="Hours" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityContainer Name="Хранилище NetPharmaciesModelContainer">
+          <EntitySet Name="Avail" EntityType="Self.Avail" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Avail].[ID] AS [ID], 
+    [Avail].[IDDrug] AS [IDDrug], 
+    [Avail].[Quantity] AS [Quantity], 
+    [Avail].[Price] AS [Price], 
+    [Avail].[IDPharm] AS [IDPharm]
+    FROM [dbo].[Avail] AS [Avail]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Drugs" EntityType="Self.Drugs" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Drugs].[ID] AS [ID], 
+    [Drugs].[TitleDrug] AS [TitleDrug], 
+    [Drugs].[FormRelease] AS [FormRelease], 
+    [Drugs].[Dosage] AS [Dosage], 
+    [Drugs].[Maker] AS [Maker], 
+    [Drugs].[ShelfLife] AS [ShelfLife]
+    FROM [dbo].[Drugs] AS [Drugs]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Pharmacies" EntityType="Self.Pharmacies" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Pharmacies].[ID] AS [ID], 
+    [Pharmacies].[TitlePharm] AS [TitlePharm], 
+    [Pharmacies].[Address] AS [Address], 
+    [Pharmacies].[Phone] AS [Phone], 
+    [Pharmacies].[Hours] AS [Hours]
+    FROM [dbo].[Pharmacies] AS [Pharmacies]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NetPharmaciesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Avail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="IDDrug" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Quantity" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Price" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="IDPharm" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Drugs">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="TitleDrug" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FormRelease" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Dosage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Maker" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ShelfLife" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Pharmacies">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="TitlePharm" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Hours" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="NetPharmaciesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Avail" EntityType="Self.Avail" />
+          <EntitySet Name="Drugs" EntityType="Self.Drugs" />
+          <EntitySet Name="Pharmacies" EntityType="Self.Pharmacies" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище NetPharmaciesModelContainer" CdmEntityContainer="NetPharmaciesEntities">
+          <EntitySetMapping Name="Avail">
+            <EntityTypeMapping TypeName="NetPharmaciesModel.Avail">
+              <MappingFragment StoreEntitySet="Avail">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDDrug" ColumnName="IDDrug" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="IDPharm" ColumnName="IDPharm" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Drugs">
+            <EntityTypeMapping TypeName="NetPharmaciesModel.Drugs">
+              <MappingFragment StoreEntitySet="Drugs">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TitleDrug" ColumnName="TitleDrug" />
+                <ScalarProperty Name="FormRelease" ColumnName="FormRelease" />
+                <ScalarProperty Name="Dosage" ColumnName="Dosage" />
+                <ScalarProperty Name="Maker" ColumnName="Maker" />
+                <ScalarProperty Name="ShelfLife" ColumnName="ShelfLife" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pharmacies">
+            <EntityTypeMapping TypeName="NetPharmaciesModel.Pharmacies">
+              <MappingFragment StoreEntitySet="Pharmacies">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TitlePharm" ColumnName="TitlePharm" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Hours" ColumnName="Hours" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

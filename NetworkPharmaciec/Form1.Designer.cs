@@ -1,6 +1,6 @@
 ﻿namespace NetworkPharmaciec
 {
-    partial class Form1
+    partial class FormPharm
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -28,97 +28,102 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.labelTitlePharm = new System.Windows.Forms.Label();
+            this.labelAddress = new System.Windows.Forms.Label();
+            this.labelPhone = new System.Windows.Forms.Label();
+            this.labelHours = new System.Windows.Forms.Label();
+            this.textBoxTitlePharm = new System.Windows.Forms.TextBox();
+            this.textBoxAddress = new System.Windows.Forms.TextBox();
+            this.textBoxPhone = new System.Windows.Forms.TextBox();
+            this.textBoxHours = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.listViewPharm = new System.Windows.Forms.ListView();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonRes = new System.Windows.Forms.Button();
+            this.buttonDel = new System.Windows.Forms.Button();
+            this.IDPharm = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.TitlePharm = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.AddressPharm = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Phone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Hours = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // labelTitlePharm
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 129);
-            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 19);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Название аптеки";
+            this.labelTitlePharm.AutoSize = true;
+            this.labelTitlePharm.Location = new System.Drawing.Point(11, 129);
+            this.labelTitlePharm.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.labelTitlePharm.Name = "labelTitlePharm";
+            this.labelTitlePharm.Size = new System.Drawing.Size(126, 19);
+            this.labelTitlePharm.TabIndex = 0;
+            this.labelTitlePharm.Text = "Название аптеки";
             // 
-            // label2
+            // labelAddress
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 224);
-            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 19);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Адрес аптеки";
+            this.labelAddress.AutoSize = true;
+            this.labelAddress.Location = new System.Drawing.Point(11, 224);
+            this.labelAddress.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.labelAddress.Name = "labelAddress";
+            this.labelAddress.Size = new System.Drawing.Size(100, 19);
+            this.labelAddress.TabIndex = 1;
+            this.labelAddress.Text = "Адрес аптеки";
             // 
-            // label3
+            // labelPhone
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(11, 331);
-            this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 19);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Телефон";
+            this.labelPhone.AutoSize = true;
+            this.labelPhone.Location = new System.Drawing.Point(11, 331);
+            this.labelPhone.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.labelPhone.Name = "labelPhone";
+            this.labelPhone.Size = new System.Drawing.Size(67, 19);
+            this.labelPhone.TabIndex = 2;
+            this.labelPhone.Text = "Телефон";
             // 
-            // label4
+            // labelHours
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(11, 440);
-            this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(98, 19);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Часы работы";
+            this.labelHours.AutoSize = true;
+            this.labelHours.Location = new System.Drawing.Point(11, 440);
+            this.labelHours.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.labelHours.Name = "labelHours";
+            this.labelHours.Size = new System.Drawing.Size(98, 19);
+            this.labelHours.TabIndex = 3;
+            this.labelHours.Text = "Часы работы";
             // 
-            // textBox1
+            // textBoxTitlePharm
             // 
-            this.textBox1.Location = new System.Drawing.Point(16, 152);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(247, 48);
-            this.textBox1.TabIndex = 4;
+            this.textBoxTitlePharm.Location = new System.Drawing.Point(16, 152);
+            this.textBoxTitlePharm.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.textBoxTitlePharm.Multiline = true;
+            this.textBoxTitlePharm.Name = "textBoxTitlePharm";
+            this.textBoxTitlePharm.Size = new System.Drawing.Size(247, 48);
+            this.textBoxTitlePharm.TabIndex = 4;
             // 
-            // textBox2
+            // textBoxAddress
             // 
-            this.textBox2.Location = new System.Drawing.Point(16, 248);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(247, 48);
-            this.textBox2.TabIndex = 5;
+            this.textBoxAddress.Location = new System.Drawing.Point(16, 248);
+            this.textBoxAddress.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.textBoxAddress.Multiline = true;
+            this.textBoxAddress.Name = "textBoxAddress";
+            this.textBoxAddress.Size = new System.Drawing.Size(247, 48);
+            this.textBoxAddress.TabIndex = 5;
             // 
-            // textBox3
+            // textBoxPhone
             // 
-            this.textBox3.Location = new System.Drawing.Point(16, 353);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(247, 48);
-            this.textBox3.TabIndex = 6;
+            this.textBoxPhone.Location = new System.Drawing.Point(16, 353);
+            this.textBoxPhone.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.textBoxPhone.Multiline = true;
+            this.textBoxPhone.Name = "textBoxPhone";
+            this.textBoxPhone.Size = new System.Drawing.Size(247, 48);
+            this.textBoxPhone.TabIndex = 6;
             // 
-            // textBox4
+            // textBoxHours
             // 
-            this.textBox4.Location = new System.Drawing.Point(16, 464);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(247, 48);
-            this.textBox4.TabIndex = 7;
+            this.textBoxHours.Location = new System.Drawing.Point(16, 464);
+            this.textBoxHours.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.textBoxHours.Multiline = true;
+            this.textBoxHours.Name = "textBoxHours";
+            this.textBoxHours.Size = new System.Drawing.Size(247, 48);
+            this.textBoxHours.TabIndex = 7;
             // 
             // pictureBox1
             // 
@@ -131,64 +136,102 @@
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
-            // listView1
+            // listViewPharm
             // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(294, 152);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(746, 360);
-            this.listView1.TabIndex = 9;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listViewPharm.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.IDPharm,
+            this.TitlePharm,
+            this.AddressPharm,
+            this.Phone,
+            this.Hours});
+            this.listViewPharm.FullRowSelect = true;
+            this.listViewPharm.GridLines = true;
+            this.listViewPharm.HideSelection = false;
+            this.listViewPharm.Location = new System.Drawing.Point(294, 152);
+            this.listViewPharm.MultiSelect = false;
+            this.listViewPharm.Name = "listViewPharm";
+            this.listViewPharm.Size = new System.Drawing.Size(746, 360);
+            this.listViewPharm.TabIndex = 9;
+            this.listViewPharm.UseCompatibleStateImageBehavior = false;
+            this.listViewPharm.View = System.Windows.Forms.View.Details;
+            this.listViewPharm.SelectedIndexChanged += new System.EventHandler(this.ListViewPharm_SelectedIndexChanged);
             // 
-            // button1
+            // buttonAdd
             // 
-            this.button1.Location = new System.Drawing.Point(501, 531);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(165, 63);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Создать";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonAdd.Location = new System.Drawing.Point(501, 531);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(165, 63);
+            this.buttonAdd.TabIndex = 10;
+            this.buttonAdd.Text = "Создать";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.ButtonAdd_Click);
             // 
-            // button2
+            // buttonRes
             // 
-            this.button2.Location = new System.Drawing.Point(687, 531);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(165, 63);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Обновить";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonRes.Location = new System.Drawing.Point(687, 531);
+            this.buttonRes.Name = "buttonRes";
+            this.buttonRes.Size = new System.Drawing.Size(165, 63);
+            this.buttonRes.TabIndex = 11;
+            this.buttonRes.Text = "Обновить";
+            this.buttonRes.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // buttonDel
             // 
-            this.button3.Location = new System.Drawing.Point(875, 531);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(165, 63);
-            this.button3.TabIndex = 12;
-            this.button3.Text = "Удалить";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonDel.Location = new System.Drawing.Point(875, 531);
+            this.buttonDel.Name = "buttonDel";
+            this.buttonDel.Size = new System.Drawing.Size(165, 63);
+            this.buttonDel.TabIndex = 12;
+            this.buttonDel.Text = "Удалить";
+            this.buttonDel.UseVisualStyleBackColor = true;
+            this.buttonDel.Click += new System.EventHandler(this.ButtonDel_Click);
             // 
-            // Form1
+            // IDPharm
+            // 
+            this.IDPharm.Text = "ID";
+            // 
+            // TitlePharm
+            // 
+            this.TitlePharm.Text = "Название аптеки";
+            this.TitlePharm.Width = 173;
+            // 
+            // AddressPharm
+            // 
+            this.AddressPharm.Text = "Адрес аптеки";
+            this.AddressPharm.Width = 148;
+            // 
+            // Phone
+            // 
+            this.Phone.Text = "Телефон";
+            this.Phone.Width = 186;
+            // 
+            // Hours
+            // 
+            this.Hours.Text = "Часы работы";
+            this.Hours.Width = 173;
+            // 
+            // FormPharm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 657);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.buttonDel);
+            this.Controls.Add(this.buttonRes);
+            this.Controls.Add(this.buttonAdd);
+            this.Controls.Add(this.listViewPharm);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBoxHours);
+            this.Controls.Add(this.textBoxPhone);
+            this.Controls.Add(this.textBoxAddress);
+            this.Controls.Add(this.textBoxTitlePharm);
+            this.Controls.Add(this.labelHours);
+            this.Controls.Add(this.labelPhone);
+            this.Controls.Add(this.labelAddress);
+            this.Controls.Add(this.labelTitlePharm);
             this.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.Name = "Form1";
+            this.Name = "FormPharm";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.FormPharm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -197,19 +240,24 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label labelTitlePharm;
+        private System.Windows.Forms.Label labelAddress;
+        private System.Windows.Forms.Label labelPhone;
+        private System.Windows.Forms.Label labelHours;
+        private System.Windows.Forms.TextBox textBoxTitlePharm;
+        private System.Windows.Forms.TextBox textBoxAddress;
+        private System.Windows.Forms.TextBox textBoxPhone;
+        private System.Windows.Forms.TextBox textBoxHours;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ListView listViewPharm;
+        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Button buttonRes;
+        private System.Windows.Forms.Button buttonDel;
+        private System.Windows.Forms.ColumnHeader IDPharm;
+        private System.Windows.Forms.ColumnHeader TitlePharm;
+        private System.Windows.Forms.ColumnHeader AddressPharm;
+        private System.Windows.Forms.ColumnHeader Phone;
+        private System.Windows.Forms.ColumnHeader Hours;
     }
 }
 
